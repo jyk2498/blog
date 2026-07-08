@@ -1,10 +1,82 @@
 baseURL = 'https://jyk2498.github.io/blog/'
-locale = 'en-us'
+languageCode = 'en-us'
 title = 'The Human Delta'
 theme = 'PaperMod'
 
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableEmoji = true
+
+# Home 출력에 JSON 추가 → 사이트 검색(fuse.js) 인덱스 생성
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[pagination]
+  pagerSize = 10
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
 [params]
+  env = 'production'            # Google Analytics 등 프로덕션 기능 게이트
+  title = 'The Human Delta'
+  description = "The Human Delta — a personal blog."
+  keywords = ['Blog']
+  DateFormat = 'January 2, 2006'
+
+  # 테마 / 표시
+  defaultTheme = 'auto'         # auto | light | dark
+  disableThemeToggle = false
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
+  ShowWordCount = true
+
+  # 켠 기능들
+  ShowCodeCopyButtons = true    # 코드 블록 복사 버튼
+  ShowToc = true                # 목차(ToC)
+  TocOpen = false               # 기본 접힌 상태
+  ShowRssButtonInSectionTermList = true
+
+  # 홈 화면(Home-Info 모드) — Content 문구는 취향껏 수정하세요 (영어로)
+  [params.homeInfoParams]
+    Title = "The Human Delta"
+    Content = "AI writes most of my code, reads specs faster than I do, and debugs circles around me. So what's left that's *human*? I work on RDMA hardware, and I use this blog to map it — one real case at a time."
+
+  # 소셜 아이콘: 지금은 없음.
+  # LinkedIn 등 나중에 추가하려면 아래 형식으로 넣으세요.
+  #   [[params.socialIcons]]
+  #     name = 'linkedin'
+  #     title = 'LinkedIn'
+  #     url = 'https://www.linkedin.com/in/USERNAME/'
+
+  # 사이트 검색 (fuse.js) 옵션
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ['title', 'permalink', 'summary', 'content']
+
+# 상단 네비게이션 메뉴
+[[menu.main]]
+  identifier = 'search'
+  name = 'Search'
+  url = '/search/'
+  weight = 10
+[[menu.main]]
+  identifier = 'archives'
+  name = 'Archive'
+  url = '/archives/'
+  weight = 20
+[[menu.main]]
+  identifier = 'tags'
+  name = 'Tags'
+  url = '/tags/'
+  weight = 30

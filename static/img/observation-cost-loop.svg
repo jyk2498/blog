@@ -1,0 +1,42 @@
+<svg width="100%" viewBox="0 0 680 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="loopTitle loopDesc" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+<title id="loopTitle">Who closes the loop, framed by observation cost</title>
+<desc id="loopDesc">When a fresh observation is nearly free, as it typically is in software, the AI closes the observe-and-narrow loop by itself. When each observation is fixed and costly, as it typically is on real hardware, the loop can only close through a human who decides which signal to expose next — an un-externalized judgment the model cannot supply.</desc>
+<defs>
+<marker id="arrL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<text x="180" y="34" text-anchor="middle" font-size="14" font-weight="500" fill="#9a988f">When observation is cheap</text>
+<text x="180" y="54" text-anchor="middle" font-size="12" fill="#9a988f">typically software — AI closes the loop</text>
+
+<rect x="70" y="80" width="220" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="180" y="102" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#085041">Observe</text>
+<rect x="70" y="204" width="220" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="180" y="226" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#085041">Add a log, re-run</text>
+
+<line x1="180" y1="124" x2="180" y2="200" stroke="#1D9E75" stroke-width="1" marker-end="url(#arrL)"/>
+<path d="M290 226 H330 V102 H294" fill="none" stroke="#1D9E75" stroke-width="1" marker-end="url(#arrL)"/>
+<text x="180" y="290" text-anchor="middle" font-size="12" fill="#9a988f">Nearly free — no human needed</text>
+
+<line x1="340" y1="74" x2="340" y2="370" stroke="#888780" stroke-width="0.5" stroke-dasharray="4 4"/>
+
+<text x="500" y="34" text-anchor="middle" font-size="14" font-weight="500" fill="#9a988f">When observation is costly</text>
+<text x="500" y="54" text-anchor="middle" font-size="12" fill="#9a988f">typically hardware — a person must close it</text>
+
+<rect x="390" y="80" width="220" height="44" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+<text x="500" y="102" text-anchor="middle" dominant-baseline="central" font-size="14" fill="#633806">Observe (fixed capture)</text>
+
+<rect x="390" y="188" width="220" height="56" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="500" y="208" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#791F1F">AI: wrong signal recorded</text>
+<text x="500" y="228" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#A32D2D">Can't reconstruct what's missing</text>
+
+<rect x="390" y="304" width="220" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="500" y="324" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#3C3489">Human: pick next signal</text>
+<text x="500" y="344" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#534AB7">Un-externalized judgment</text>
+
+<line x1="500" y1="124" x2="500" y2="184" stroke="#BA7517" stroke-width="1" marker-end="url(#arrL)"/>
+<line x1="500" y1="244" x2="500" y2="300" stroke="#993536" stroke-width="1" marker-end="url(#arrL)"/>
+<path d="M390 332 H360 V102 H386" fill="none" stroke="#534AB7" stroke-width="1.2" marker-end="url(#arrL)"/>
+<text x="500" y="392" text-anchor="middle" font-size="12" fill="#9a988f">Every turn re-arms the capture</text>
+</svg>

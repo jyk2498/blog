@@ -1,0 +1,34 @@
+{{- /*
+  Project override of PaperMod's image render hook.
+  Adds a fallback so root-relative paths that live under static/ (e.g.
+  /img/foo.svg) get the baseURL sub-path prepended. Note: relURL/absURL of a
+  leading-slash path do NOT add the baseURL sub-path, so we strip the leading
+  slash first — relURL "img/foo.svg" -> "/blog/img/foo.svg" under a
+  https://user.github.io/blog/ baseURL. Without this the src stays /img/foo.svg
+  and 404s in a sub-path deployment. Page-bundle / assets resources keep the
+  theme's original .RelPermalink behavior.
+*/ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $src := $u.String -}}
+{{- if not $u.IsAbs -}}
+  {{- $path := strings.TrimPrefix "./" $u.Path }}
+  {{- with or (.PageInner.Resources.Get $path) (resources.Get $path) -}}
+    {{- $src = .RelPermalink -}}
+  {{- else -}}
+    {{- $src = strings.TrimPrefix "/" $u.Path | relURL -}}
+  {{- end -}}
+  {{- with $u.RawQuery -}}
+    {{- $src = printf "%s?%s" $src . -}}
+  {{- end -}}
+  {{- with $u.Fragment -}}
+    {{- $src = printf "%s#%s" $src . -}}
+  {{- end -}}
+{{- end -}}
+{{- $attributes := merge .Attributes (dict "alt" .Text "src" $src "title" (.Title | transform.HTMLEscape) "loading" "lazy") -}}
+<img
+  {{- range $k, $v := $attributes -}}
+    {{- if $v -}}
+      {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+    {{- end -}}
+  {{- end -}}>
+{{- /**/ -}}
