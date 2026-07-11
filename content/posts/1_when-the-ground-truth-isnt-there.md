@@ -1,5 +1,5 @@
 +++
-title = "When the Ground Truth Isn't There: A Hardware Bug the AI Couldn't Catch"
+title = "1_ When the Ground Truth Isn't There: A Hardware Bug the AI Couldn't Catch"
 date = 2026-07-07
 draft = false
 tags = ["rdma", "hardware-debugging", "ai-collaboration", "ground-truth", "skepticism"]
@@ -148,12 +148,11 @@ it could have closed the gap itself — add a log line, re-run, narrow in, almos
 for free. On real hardware that loop barely exists: you see a fixed set of
 signals you *chose in advance* to route out, in a narrow window around a trigger
 you *chose in advance* to arm, and each capture is slow and costly to pull, not
-something you casually redo twenty times. (Simulation gives you total visibility
-instead, but running the real workload takes days and dumps hundreds of
-gigabytes — the opposite bad trade.) Either way the same question lands back on a
-person, before any model sees anything: of everything I *could* record, what do I
-actually make visible? No amount of intelligence reconstructs a signal that was
-never recorded.
+looking for it. (Simulation gives you total visibility instead, but running the
+real workload takes days and dumps hundreds of gigabytes — the opposite bad
+trade.) Either way the same question lands back on a person, before any model
+sees anything: of everything I *could* record, what do I actually make visible?
+No amount of intelligence reconstructs a signal that was never recorded.
 
 None of this is really about the software/hardware label — plenty of software
 bugs are their own kind of hell to reproduce. The axis that actually matters is

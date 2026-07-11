@@ -1,11 +1,11 @@
 +++
-title = "The Feedback Signal Was the Missing Ground Truth: An HLS Optimization the AI Got Wrong, Then Right"
+title = "2_ The Feedback Signal Was the Missing Ground Truth: An HLS Optimization the AI Got Wrong, Then Right"
 date = 2026-07-07
 draft = false
 tags = ["HLS", "hardware-design", "AI-collaboration", "ground-truth", "optimization"]
 +++
 
-In my [last post](/posts/when-the-ground-truth-isnt-there/) I wrote about a bug
+In my [last post](/posts/1_when-the-ground-truth-isnt-there/) I wrote about a bug
 the AI never caught, because the ground truth it needed was never recorded. This
 one is almost the mirror image: a case where the AI got it *wrong*, I pushed
 back, and it fixed the problem itself — without my ever explaining the trick. The
@@ -182,7 +182,7 @@ in the report and the place-and-route view, not the code. Those artifacts were o
 my machine. I just didn't put them in the loop. Had I, I suspect it would have
 skipped the serial chain and gone straight to the term-masked tree.
 
-That's the same lesson as [last time](/posts/when-the-ground-truth-isnt-there/),
+That's the same lesson as [last time](/posts/1_when-the-ground-truth-isnt-there/),
 from the other side. There, the ground truth for a bug never existed because I
 hadn't recorded it. Here it *did* exist — I just didn't route it into the model's
 view. Either way, the model is only as good as the ground truth it can see, and
