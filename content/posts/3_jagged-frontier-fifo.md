@@ -56,13 +56,13 @@ Every entry becomes its own bank of flip-flops, and each bank gets its own clock
 by **16 distinct enable nets** — one per entry, each feeding that entry's 14 flip-flops.
 
 ```
-  tail ──▶[ decode ]──▶ 16 one-hot lines
-                          │
-  push ───────────────────┤  (AND'd into each line)
-                          ▼
+  tail --->[ decode ]---> 16 one-hot lines
+                          |
+  push -------------------|  (AND'd into each line)
+                          v
              CE0   CE1   CE2   ...   CE15     16 distinct clock-enable nets
-              │     │     │           │
-              ▼     ▼     ▼           ▼
+              |     |     |           |
+              v     v     v           v
             [e0]  [e1]  [e2]   ...  [e15]     each entry = 14 FFs on one shared CE
 
   16 entries x 14 FF = 224 FF  ->  16 control sets
@@ -86,11 +86,11 @@ is to replicate its driver, so each copy drives fewer loads — but that trades 
 for another:
 
 ```
-  before:  drv ──────────────▶ many loads across the array   (wide fanout)
+  before:  drv ---------------> many loads across the array   (wide fanout)
 
-  after :  drv ─┬─ copy1 ─▶ ...
-                ├─ copy2 ─▶ ...    fanout per net down, but
-                └─ copy3 ─▶ ...    total LUT/net count up
+  after :  drv -+- copy1 -> ...
+                |- copy2 -> ...    fanout per net down, but
+                +- copy3 -> ...    total LUT/net count up
                                    -> net loss inside a congested region
 ```
 
@@ -105,15 +105,15 @@ small writable memories. The key point is that the write-address decoder lives *
 the primitive, as dedicated silicon — not as fabric logic you synthesized:
 
 ```
-  wr_addr (tail) ─▶┌────────────────────────────────┐
-  wr_en  (1 net) ─▶│   write-address decoder         │  <- hardened inside
-  din            ─▶│   (dedicated silicon)           │     the primitive
-                   │             │                    │
-                   │             ▼                    │
-                   │   word0 word1 ... word15         │   distributed-RAM cells
-                   │             │                    │
-  rd_addr (head) ─▶│             ▼                    │
-                   └────────── dout ─────────────────┘
+  wr_addr (tail) --->+--------------------------------+
+  wr_en  (1 net) --->|   write-address decoder         |  <- hardened inside
+  din            --->|   (dedicated silicon)           |     the primitive
+                     |             |                  |
+                     |             v                  |
+                     |   word0 word1 ... word15        |   distributed-RAM cells
+                     |             |                  |
+  rd_addr (head) --->|             v                  |
+                     +---------- dout ----------------+
 
   one write-enable, one address  ->  no per-entry CE, no control-set split
 ```
