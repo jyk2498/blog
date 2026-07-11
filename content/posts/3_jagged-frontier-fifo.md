@@ -1,5 +1,5 @@
 +++
-title = "3_ I Braced for the Hard Part; the Easy Part Broke: A Jagged-Frontier Story from an HLS FIFO"
+title = "I Braced for the Hard Part; the Easy Part Broke: A Jagged-Frontier Story from an HLS FIFO"
 date = 2026-07-11
 draft = false
 tags = ["jagged-frontier", "HLS", "FPGA", "AI-collaboration", "hardware-design"]

@@ -1,5 +1,5 @@
 +++
-title = "1_ When the Ground Truth Isn't There: A Hardware Bug the AI Couldn't Catch"
+title = "When the Ground Truth Isn't There: A Hardware Bug the AI Couldn't Catch"
 date = 2026-07-07
 draft = false
 tags = ["rdma", "hardware-debugging", "ai-collaboration", "ground-truth", "skepticism"]

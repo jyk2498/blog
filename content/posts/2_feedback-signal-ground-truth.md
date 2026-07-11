@@ -1,5 +1,5 @@
 +++
-title = "2_ The Feedback Signal Was the Missing Ground Truth: An HLS Optimization the AI Got Wrong, Then Right"
+title = "The Feedback Signal Was the Missing Ground Truth: An HLS Optimization the AI Got Wrong, Then Right"
 date = 2026-07-07
 draft = false
 tags = ["HLS", "hardware-design", "AI-collaboration", "ground-truth", "optimization"]
