@@ -1,7 +1,7 @@
 +++
 title = "Ranked Last of Nine: When Branch Order Changes an HLS Schedule"
 date = 2026-08-03
-draft = true
+draft = false 
 tags = ["hls", "catapult", "scheduling", "ai-collaboration", "hardware-design"]
 +++
 
